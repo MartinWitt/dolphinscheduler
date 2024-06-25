@@ -392,7 +392,7 @@ public class StreamTaskExecuteRunnable implements Runnable {
                 Set<Integer> resourceIdsSet = resourceIdStream.collect(Collectors.toSet());
 
                 if (CollectionUtils.isNotEmpty(resourceIdsSet)) {
-                    Integer[] resourceIds = resourceIdsSet.toArray(new Integer[resourceIdsSet.size()]);
+                    Integer[] resourceIds = resourceIdsSet.toArray(new Integer[0]);
 
                     List<Resource> resources = processService.listResourceByIds(resourceIds);
                     resources.forEach(t -> resourcesMap.put(t.getFullName(),
@@ -494,7 +494,7 @@ public class StreamTaskExecuteRunnable implements Runnable {
     }
 
     private enum TaskRunnableStatus {
-        CREATED, STARTED,
+        CREATED, STARTED
         ;
     }
 }
